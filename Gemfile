@@ -6,6 +6,8 @@ ruby "3.2.1"
 gem "jwt"
 gem "bcrypt"
 gem "byebug"
+gem "active_model_serializers"
+gem "rubocop"
 
 gem "activestorage"
 

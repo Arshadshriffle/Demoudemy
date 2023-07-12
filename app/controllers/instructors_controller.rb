@@ -15,7 +15,7 @@ class InstructorsController < ApplicationController
       @instructor = Instructor.where(id: @current_user.id).find_by(id:params[:id])
       if !@instructor.blank?
       if @instructor.update(params.permit(:password))
-        render json: { message: "Password updated successfully" }, status: :ok
+        render json: { message: "Password updated successfully" } ,status: :ok
       else
         render json: { errors: @instructor.errors.full_messages }, status: :unprocessable_entity
       end

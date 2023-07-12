@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 	before_action :authenticate_request
 	# before_action :student_authenticate_request
 
-	private
+	# private
+	protected
 
 	def authenticate_request
 		begin

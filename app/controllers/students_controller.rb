@@ -25,19 +25,7 @@ class StudentsController < ApplicationController
       end 
     end
 
-    # def update
-    #   if @student.update(user_params)
-    #     render json: @student
-    #   else
-    #     render json: { errors: @student.errors.full_messages }, status: :unprocessable_entity
-    #   end
-    # end
-  
-    # def destroy
-    #   @student.destroy
-    #   head :no_content
-    # end
-
+ 
     def destroy
       @student = Student.where(id: @current_user.id).find_by(id:params[:id])
       if !@student.blank?
