@@ -1,8 +1,4 @@
 class EnrollmentsController < ApplicationController
-    # def show
-    #   @all_courses = Course.where(status: "active")
-    #   render json: @all_courses, status: :ok
-    # end
 
     def create
       user = User.find(@current_user.id)
@@ -53,51 +49,15 @@ class EnrollmentsController < ApplicationController
     end
     end
    
-
-
-
-
-
-
-
     def my_course
       # byebug
-      course=Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
+        course=Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
 
-      all_courses = Enrollment.where(id:course).find_by(student_id: @current_user.id)
+        all_courses = Enrollment.where(id:course).find_by(student_id: @current_user.id)
 
-render json: all_courses
-      # if all_courses.length != 0
-      #   cou=[]
-      #   all_courses.each do |value|
-      #   h=Hash.new
-      #   h[:details]=value
-      #   h[:video]=value.course.video.url
-      #   cou.push(h)
-      #   end
-      #   render json: cou, status: 200
-        
-      # else 
-      #   render json: {message: "At this movement no courses avilable "}
-      # end
-  end
+        render json: all_courses
+ end
 
-  # all_courses = Course.joins(:enrollments).where("courses.title LIKE ? AND enrollments.student_id = ?", "%#{params[:title]}%", @current_user)
-
-
-# def my_course
-#   course_ids = Course.where("title LIKE ?", "%#{params[:title]}%").select(:id)
-
-#   all_courses = Enrollment.where(id: course_ids, student_id: @current_user.id).first
-
-#   if all_courses.nil?
-#     render json: { message: "No courses available with the provided search field for the current user" }, status: :ok
-#   else
-#     render json: all_courses, status: :ok
-#   end
-# rescue => e
-#   render json: { error: e.message }, status: :unprocessable_entity
-# end
     private
   
     def enroll_params
