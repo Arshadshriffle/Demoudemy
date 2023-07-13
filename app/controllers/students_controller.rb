@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
       end 
     end
 
- 
+
     def destroy
       @student = Student.where(id: @current_user.id).find_by(id:params[:id])
       if !@student.blank?
@@ -49,9 +49,6 @@ class StudentsController < ApplicationController
   
     private
 
-    # def set_user
-    #   @student = Student.find(params[:id])
-    # end
   
     def user_params
       params.permit(:name, :email, :password, :username, :type)

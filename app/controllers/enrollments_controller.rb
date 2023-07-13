@@ -1,8 +1,4 @@
 class EnrollmentsController < ApplicationController
-    # def show
-    #   @all_courses = Course.where(status: "active")
-    #   render json: @all_courses, status: :ok
-    # end
 
     def create
       user = User.find(@current_user.id)
@@ -48,19 +44,16 @@ class EnrollmentsController < ApplicationController
     end
    
 
-
-
     def search_in_my_course
       # byebug
-      course=Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
+        course=Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
 
-      all_courses = Enrollment.where(course_id:course,student_id:@current_user.id)
+        all_courses = Enrollment.where(course_id:course,student_id:@current_user.id)
 
     render json: all_courses
      
-  end
+    end
 
- 
     private
   
     def enroll_params
