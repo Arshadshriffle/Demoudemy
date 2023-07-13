@@ -11,17 +11,7 @@ class InstructorsController < ApplicationController
       end
     end
 
-    # def show
-    #   all_courses = Course.where(instructor_id: @current_user).where("title LIKE ?", "%#{params[:title]}%")
-    
-    #   if all_courses.empty?
-    #     render json: { message: "At this moment, no courses available with your seach query" }, status: :ok
-    #   else
-    #     render json: all_courses
-    #     end
-    # rescue => e
-    #   render json: { error: e.message }, status: :unprocessable_entity
-    # end
+   
     
     def update
       @instructor = Instructor.where(id: @current_user.id).find_by(id:params[:id])
