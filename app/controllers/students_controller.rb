@@ -15,11 +15,11 @@ class StudentsController < ApplicationController
     def update
       @student = Student.where(id: @current_user.id).find_by(id:params[:id])
       if !@student.blank?
-      if @student.update(params.permit(:password))
-        render json: { message: "Password updated successfully" }, status: :ok
-      else
-        render json: { errors: @student.errors.full_messages }, status: :unprocessable_entity
-      end
+        if @student.update!(params.permit(:password))
+          render json: { message: "Password updated successfully" }, status: :ok
+        else
+          render json: { errors: @student.errors.full_messages }, status: :unprocessable_entity
+        end
       else
         render json: { errors: "You are Pretending to someone" }, status: :unprocessable_entity
       end 
@@ -29,11 +29,11 @@ class StudentsController < ApplicationController
     def destroy
       @student = Student.where(id: @current_user.id).find_by(id:params[:id])
       if !@student.blank?
-      if @student.destroy
-        render json: { message: "student Deleted" }, status: :ok
-      else
-        render json: { errors: @student.errors.full_messages }, status: :unprocessable_entity
-      end
+        if @student.destroy
+          render json: { message: "student Deleted" }, status: :ok
+        else
+          render json: { errors: @student.errors.full_messages }, status: :unprocessable_entity
+        end
       else
         render json: { errors: "You are Pretending to someone else" }, status: :unprocessable_entity
       end 

@@ -3,20 +3,27 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :instructors , only: [:create ,:update,:destroy ]
+  resources :instructors , only: [:create ,:update,:destroy, :show ]
   resources :students  , only: [:create ,:update,:destroy ]
   resources :courses
   resources :enrollments
   post "/auth/login", to: "authentication#login"
 
-  get "/instructor/:title" , to: "courses#single_course_with_name"
-  get "/instructor/show/:status" , to: "courses#course_status"
+  get "/instructor" , to: "courses#single_course_with_name"
+  get "/instructor/status" , to: "courses#course_status"
+
 
   get  "student/allcourses", to: "courses#allcourses"
-  get  "student/allcourses/:category_id", to: "courses#course_category"
-  get  "student/:category_id/:title" , to: "courses#course_with_name"
+  get  "student/category", to: "courses#course_category"
+  get  "student/name", to: "courses#course_with_name"
+  get  "student/tac" , to: "courses#name_and_category"
 
-  get  "enrollment/:title" , to: "enrollments#my_course"
+  
+
+  get  "mycourse" , to: "enrollments#search_in_my_course"
+
+  # get  "student/allcourses/:category_id", to: "courses#course_category"
+    # get  "student/:category_id/:title" , to: "courses#course_with_name"
 # All the instructor works
   # post "/instructor/course", to: "courses#create"
   

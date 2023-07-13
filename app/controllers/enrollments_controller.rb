@@ -6,7 +6,7 @@ class EnrollmentsController < ApplicationController
 
     def create
       user = User.find(@current_user.id)
-      if user.type == "Student"
+      if user.type == "Student" 
         @enroll = @current_user.enrollments.new(enroll_params)
         if @enroll.save
           render json: @enroll, status: :ok
@@ -24,7 +24,7 @@ class EnrollmentsController < ApplicationController
       if all_courses.empty?
         render json: { message: "At this moment, no course is enrolled by you" }, status: :ok
       else
-        render json: @enroll, serializer: SenderSerializer , status: :ok
+        render json: all_courses, status: :ok
       end
     rescue => e
       render json: { error: e.message }, status: :unprocessable_entity
@@ -33,11 +33,12 @@ class EnrollmentsController < ApplicationController
   
     def update
       begin
+       
       enrollment = Enrollment.find(params[:id])
       new_status = params[:cou_status]
   
       if enrollment.update(cou_status: new_status)
-        render json: @enroll, serializer: SenderSerializer , status: :ok
+        render json: @enroll,  status: :ok
       else
         render json: enrollment.errors, status: :unprocessable_entity
       end
@@ -49,11 +50,11 @@ class EnrollmentsController < ApplicationController
 
 
 
-    def my_course
+    def search_in_my_course
       # byebug
       course=Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
 
-      all_courses = Enrollment.where(id:course).find_by(student_id: @current_user.id)
+      all_courses = Enrollment.where(course_id:course,student_id:@current_user.id)
 
     render json: all_courses
      

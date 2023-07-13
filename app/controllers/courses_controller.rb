@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
       if @single_course.nil?
         render json: { errors: "Course with id #{params[:id]} is not available or not yet created" }, status: :not_found
       else
-        render json: @single_course_courses
+        render json: @single_course
       end
     rescue => e
       render json: { error: e.message }, status: :unprocessable_entity
@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
       if all_courses.empty?
         render json: { message: "At this moment, no courses available with your seach query" }, status: :ok
       else
-        render json: @all_courses
+        render json: all_courses
         end
     rescue => e
       render json: { error: e.message }, status: :unprocessable_entity
@@ -58,10 +58,10 @@ class CoursesController < ApplicationController
       all_courses = Course.where(instructor_id: @current_user.id, status: params[:status])
     
       if all_courses.empty?
-        render json: { message: "No courses available with #{parsms[:status]} status" }, status: :ok
+        render json: { message: "No courses available with #{params[:status]} status" }, status: :ok
       else
         
-        render json: @all_courses
+        render json: all_courses
       end
     rescue => e
       render json: { error: e.message }, status: :unprocessable_entity
@@ -95,11 +95,23 @@ rescue => e
   render json: { error: e.message }, status: :unprocessable_entity
 end
 
-def course_with_name
-  all_courses = Course.where(category_id:params[:category_id]).where("title LIKE ?", "%#{params[:title]}%")
+def name_and_category
+  all_courses = Course.where("title LIKE ?", "%#{params[:title]}%").where(category_id: params[:category_id],status: "active")
 
   if all_courses.empty?
-    render json: { message: "No courses available with your search field in this category" }, status: :ok
+    render json: { message: "No courses available with your search field in this category and name" }, status: :ok
+  else
+    render json: all_courses, each_serializer: FstudSerializer, status: :ok 
+  end
+rescue => e
+  render json: { error: e.message }, status: :unprocessable_entity
+end
+
+def course_with_name
+  all_courses = Course.where("title LIKE ?", "%#{params[:title]}%").where(status: "active")
+
+  if all_courses.empty?
+    render json: { message: "No courses available with your search field in this name" }, status: :ok
   else
     render json: all_courses, each_serializer: FstudSerializer, status: :ok 
   end
