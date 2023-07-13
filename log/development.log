@@ -17569,3 +17569,254 @@ Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 5207
   [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "s@gmail"], ["id", 10], ["LIMIT", 1]]
   [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "s@gmail.com"], ["id", 10], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/students" for ::1 at 2023-07-13 17:43:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant UserController):
+  
+Started POST "/students" for ::1 at 2023-07-13 18:03:45 +0530
+  
+SyntaxError (/home/rails/Desktop/udemy/app/controllers/users_controller.rb:51: syntax error, unexpected `end'):
+  
+app/controllers/users_controller.rb:51: syntax error, unexpected `end'
+app/controllers/users_controller.rb:51: syntax error, unexpected `end'
+app/controllers/users_controller.rb:51: syntax error, unexpected `end'
+Started POST "/students" for ::1 at 2023-07-13 18:04:18 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"c@gmail.com", "password"=>"[FILTERED]", "username"=>"c", "name"=>"c", "type"=>"student"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms | Allocations: 4237)
+
+
+  
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'student'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite User.inheritance_column to use another column for that information.):
+  
+app/controllers/users_controller.rb:7:in `create'
+Started POST "/students" for ::1 at 2023-07-13 18:05:59 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"c@gmail.com", "password"=>"[FILTERED]", "username"=>"c", "name"=>"c", "type"=>"Student"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 305ms (Views: 2.0ms | ActiveRecord: 1.5ms | Allocations: 19008)
+
+
+Started POST "/students" for ::1 at 2023-07-13 18:06:09 +0530
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"c@gmail.com", "password"=>"[FILTERED]", "username"=>"c", "name"=>"c", "type"=>"Student"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "username", "created_at", "updated_at", "type") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "c"], ["email", "c@gmail.com"], ["password_digest", "[FILTERED]"], ["username", "c"], ["created_at", "2023-07-13 12:36:09.777537"], ["updated_at", "2023-07-13 12:36:09.777537"], ["type", "Student"]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers]   [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "enrollments" ON "courses"."id" = "enrollments"."course_id" WHERE "enrollments"."student_id" = ?[0m  [["student_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:9:in `create'
+[active_model_serializers]   [1m[36mEnrollment Load (0.1ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."student_id" = ?[0m  [["student_id", 12]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:9:in `create'
+[active_model_serializers] Rendered StudentSerializer with ActiveModelSerializers::Adapter::Attributes (27.91ms)
+Completed 201 Created in 330ms (Views: 41.5ms | ActiveRecord: 3.4ms | Allocations: 20814)
+
+
+Started GET "/instructors" for ::1 at 2023-07-13 18:11:00 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/instructors"):
+  
+Started POST "/instructors" for ::1 at 2023-07-13 18:11:16 +0530
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "type"=>"Instructor"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "d"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mInstructor Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "username", "created_at", "updated_at", "type") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "d"], ["email", "d@gmail.com"], ["password_digest", "[FILTERED]"], ["username", "d"], ["created_at", "2023-07-13 12:41:17.025660"], ["updated_at", "2023-07-13 12:41:17.025660"], ["type", "Instructor"]]
+  ↳ app/controllers/users_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8:in `create'
+[active_model_serializers]   [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ?[0m  [["instructor_id", 13]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:9:in `create'
+[active_model_serializers] Rendered InstructorSerializer with ActiveModelSerializers::Adapter::Attributes (2.7ms)
+Completed 201 Created in 298ms (Views: 3.8ms | ActiveRecord: 3.3ms | Allocations: 9677)
+
+
+Started GET "/auth/login" for ::1 at 2023-07-13 18:12:09 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+  
+Started GET "/auth/login" for ::1 at 2023-07-13 18:15:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+  
+Started GET "/auth/login" for ::1 at 2023-07-13 18:15:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+  
+Started POST "/auth/login" for ::1 at 2023-07-13 18:15:46 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"c@gmail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 296ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1388)
+
+
+Started GET "/auth/login" for ::1 at 2023-07-13 18:16:55 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+  
+Started POST "/auth/login" for ::1 at 2023-07-13 18:17:03 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"d@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 281ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 837)
+
+
+Started POST "/courses" for ::1 at 2023-07-13 18:28:17 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f6781d8e650 @tempfile=#<Tempfile:/tmp/RackMultipart20230713-9508-fpe914.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"completed", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:3:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 2068)
+
+
+Started POST "/auth/login" for ::1 at 2023-07-13 18:28:29 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"d@gmail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 283ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 861)
+
+
+Started POST "/courses" for ::1 at 2023-07-13 18:28:49 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f6783712a90 @tempfile=#<Tempfile:/tmp/RackMultipart20230713-9508-iaeu7m.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"completed", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 78ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 36101)
+
+
+Started POST "/courses" for ::1 at 2023-07-13 18:29:06 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f678502fe60 @tempfile=#<Tempfile:/tmp/RackMultipart20230713-9508-r1kf99.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCategory Load (4.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("title", "about", "status", "instructor_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "hello ji"], ["about", "ji yai course hai"], ["status", "active"], ["instructor_id", 13], ["category_id", 3], ["created_at", "2023-07-13 12:59:06.299008"], ["updated_at", "2023-07-13 12:59:06.299008"]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "u6dph9j4tskmhc1r9ugfafzpy6ng"], ["filename", "Programmer-Whatsapp-Status-Videos (3).mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1789022], ["checksum", "Zin44BD34ycAN+KZGcq0XA=="], ["created_at", "2023-07-13 12:59:06.304731"]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Course"], ["record_id", 23], ["blob_id", 23], ["created_at", "2023-07-13 12:59:06.306707"]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mCourse Update (0.1ms)[0m  [1m[33mUPDATE "courses" SET "updated_at" = ? WHERE "courses"."id" = ?[0m  [["updated_at", "2023-07-13 12:59:06.308203"], ["id", 23]]
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:7:in `create'
+[36m  Disk Storage (6.4ms) [0m[32mUploaded file to key: u6dph9j4tskmhc1r9ugfafzpy6ng (checksum: Zin44BD34ycAN+KZGcq0XA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 3e03bb41-3728-4a24-81a6-4a43b4b86a2b) to Async(default) with arguments: #<GlobalID:0x00007f67842fc220 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/23>>
+[active_model_serializers] [36m  Disk Storage (1.9ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlNJT2RtbGtaVzh2YlhBME9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIzLTA3LTEzVDEzOjA0OjA2LjMyNVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--36d422b50abf5101f41cd217f80f94a22681ebf9/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (2.55ms)
+Completed 200 OK in 104ms (Views: 4.1ms | ActiveRecord: 14.4ms | Allocations: 12559)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b] Performing ActiveStorage::AnalyzeJob (Job ID: 3e03bb41-3728-4a24-81a6-4a43b4b86a2b) from Async(default) enqueued at 2023-07-13T12:59:06Z with arguments: #<GlobalID:0x00007f67846431e0 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/23>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b] [36m  Disk Storage (3.9ms) [0m[34mDownloaded file from key: u6dph9j4tskmhc1r9ugfafzpy6ng[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b] Skipping video analysis because ffprobe isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"audio\":false,\"video\":false,\"analyzed\":true}"], ["id", 23]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b]   [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [3e03bb41-3728-4a24-81a6-4a43b4b86a2b] Performed ActiveStorage::AnalyzeJob (Job ID: 3e03bb41-3728-4a24-81a6-4a43b4b86a2b) from Async(default) in 22.06ms
+Started GET "/courses" for ::1 at 2023-07-13 18:35:50 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."instructor_id" = ? LIMIT ?[0m  [["instructor_id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:23:in `index'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ?[0m  [["instructor_id", 13]]
+  ↳ app/controllers/courses_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMTNUMTM6MTA6NTAuOTI2WiIsInB1ciI6ImJsb2Jfa2V5In19--3f676136c9af4953e946e55f7bf12f1788426cc7/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.01ms)
+Completed 200 OK in 12ms (Views: 7.0ms | ActiveRecord: 1.3ms | Allocations: 5283)
+
+
+Started GET "/courses/22" for ::1 at 2023-07-13 18:43:59 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["instructor_id", 11], ["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:33:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 22], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: qtr8k1eee3qe8n7fj7zepnvpsd4c (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjWFJ5T0dzeFpXVmxNM0ZsT0c0M1ptbzNlbVZ3Ym5ad2MyUTBZd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMTNUMTM6MTg6NTkuNTg0WiIsInB1ciI6ImJsb2Jfa2V5In19--0181856ffe317fa39b20151e3df6001c02151459/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (3.63ms)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 1.1ms | Allocations: 4442)
+
+
+Started GET "/courses/23" for ::1 at 2023-07-13 18:58:07 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"23"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 400 Bad Request in 2ms (Views: 0.9ms | Allocations: 561)
+
+
+Started GET "/courses/23" for ::1 at 2023-07-13 18:58:35 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:26:in `authenticate_request'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["instructor_id", 13], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:33:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMTNUMTM6MzM6MzUuNDUyWiIsInB1ciI6ImJsb2Jfa2V5In19--b6ed102c5a10edd66daca29e191381a3266bd244/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (3.64ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.0ms | Allocations: 3508)
+
+
