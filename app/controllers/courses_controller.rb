@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class CoursesController < ApiController
   def create
     user = User.find(@current_user.id)
     if user.type == "Instructor"

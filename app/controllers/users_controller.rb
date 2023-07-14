@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < ApiController
   skip_before_action :authenticate_request, only: [:create]
+  before_action :authenticate_request, only: [:destroy, :update]
 
   def create
     @user = User.new(user_params)
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   def update
     @user = User.where(id: @current_user.id).find_by(id: params[:id])
     if !@user.blank?
-      if @user.update(params.permit(:password))
+      if @user.update(password_update)
         render json: { message: "Password updated successfully" }, status: :ok
       else
         render json: { errors: @instructor.errors.full_messages }, status: :unprocessable_entity
@@ -40,5 +41,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.permit(:name, :email, :password, :username, :type)
+  end
+
+  def password_update
+    params.permit(:password)
   end
 end

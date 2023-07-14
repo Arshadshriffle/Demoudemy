@@ -1,4 +1,4 @@
-class EnrollmentsController < ApplicationController
+class EnrollmentsController < ApiController
   def create
     user = User.find(@current_user.id)
     if user.type == "Student"

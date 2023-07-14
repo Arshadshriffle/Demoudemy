@@ -9,6 +9,12 @@ gem "byebug"
 gem "active_model_serializers"
 gem "rubocop"
 
+gem "devise"
+gem "activeadmin"
+gem "sprockets", "<4"
+gem "sass-rails"
+
+
 gem "activestorage"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

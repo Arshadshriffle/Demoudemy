@@ -16,4 +16,4 @@ categories = [
 
   categories.each do |category|
     Category.create(category)
-  end
+  endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
