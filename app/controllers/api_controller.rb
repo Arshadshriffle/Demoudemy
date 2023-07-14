@@ -1,12 +1,13 @@
 class ApiController < ActionController::API
   include JsonWebToken
+  include Pundit
 
   before_action do
     ActiveStorage::Current.url_options = { protocol: request.protocol, host: request.host, port: request.port }
   end
 
-  protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token
+  #   protect_from_forgery with: :null_session
+  #   skip_before_action :verify_authenticity_token
   before_action :authenticate_request
   # before_action :student_authenticate_request
 
@@ -24,5 +25,9 @@ class ApiController < ActionController::API
     rescue
       render json: { message: "Please Provide Right token" }, status: 400
     end
+  end
+
+  def current_user
+    @current_user
   end
 end

@@ -14,6 +14,7 @@ gem "activeadmin"
 gem "sprockets", "<4"
 gem "sass-rails"
 
+gem "pundit"
 
 gem "activestorage"
 

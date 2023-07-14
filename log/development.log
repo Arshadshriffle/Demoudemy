@@ -18354,3 +18354,1078 @@ Processing by Admin::InstructorsController#index as HTML
 Completed 200 OK in 79ms (Views: 64.7ms | ActiveRecord: 2.3ms | Allocations: 63927)
 
 
+Started POST "/students" for ::1 at 2023-07-14 14:49:19 +0530
+  
+NoMethodError (undefined method `protect_from_forgery' for ApiController:Class):
+  
+app/controllers/api_controller.rb:8:in `<class:ApiController>'
+app/controllers/api_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/students" for ::1 at 2023-07-14 14:50:25 +0530
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api_controller.rb:9:in `<class:ApiController>'
+app/controllers/api_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/admin/instructors" for ::1 at 2023-07-14 14:52:16 +0530
+Processing by Admin::InstructorsController#index as HTML
+  [1m[36mAdminUser Load (0.1ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["type", "Instructor"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 62.9ms | Allocations: 56845)
+Completed 200 OK in 76ms (Views: 63.6ms | ActiveRecord: 0.9ms | Allocations: 63132)
+
+
+Started GET "/admin/dashboard" for ::1 at 2023-07-14 14:52:18 +0530
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/page/index.html.arb (Duration: 20.8ms | Allocations: 19479)
+Completed 200 OK in 29ms (Views: 23.1ms | ActiveRecord: 0.3ms | Allocations: 21307)
+
+
+Started GET "/admin/admin_users" for ::1 at 2023-07-14 14:52:19 +0530
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 37.6ms | Allocations: 31615)
+Completed 200 OK in 47ms (Views: 39.4ms | ActiveRecord: 0.4ms | Allocations: 33873)
+
+
+Started GET "/admin/comments" for ::1 at 2023-07-14 14:52:20 +0530
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mActiveAdmin::Comment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = ?[0m  [["namespace", "admin"]]
+  [1m[36mActiveAdmin::Comment Load (0.1ms)[0m  [1m[34mSELECT "active_admin_comments".* FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = ? ORDER BY "active_admin_comments"."id" desc LIMIT ? OFFSET ?[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Pluck (0.1ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments" ORDER BY resource_type asc[0m
+  [1m[36mActiveAdmin::Comment Pluck (0.1ms)[0m  [1m[34mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments" ORDER BY author_type asc[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 37.8ms | Allocations: 34983)
+Completed 200 OK in 47ms (Views: 39.4ms | ActiveRecord: 0.8ms | Allocations: 37159)
+
+
+Started GET "/admin/courses" for ::1 at 2023-07-14 14:52:22 +0530
+Processing by Admin::CoursesController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 11], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments"[0m
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs"[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ?[0m  [["type", "Instructor"]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 236.3ms | Allocations: 204522)
+Completed 200 OK in 244ms (Views: 234.4ms | ActiveRecord: 3.9ms | Allocations: 206801)
+
+
+Started GET "/admin/courses" for ::1 at 2023-07-14 14:52:25 +0530
+Processing by Admin::CoursesController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 11], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 6], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Instructor Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Instructor"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments"[0m
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs"[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ?[0m  [["type", "Instructor"]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 218.4ms | Allocations: 184684)
+Completed 200 OK in 225ms (Views: 217.3ms | ActiveRecord: 2.5ms | Allocations: 186480)
+
+
+Started GET "/admin/enrollments" for ::1 at 2023-07-14 14:52:26 +0530
+Processing by Admin::EnrollmentsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mEnrollment Load (0.2ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 10], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ?[0m  [["type", "Student"]]
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 136.5ms | Allocations: 115789)
+Completed 200 OK in 151ms (Views: 136.3ms | ActiveRecord: 3.9ms | Allocations: 118589)
+
+
+Started GET "/admin/instructors" for ::1 at 2023-07-14 14:52:27 +0530
+Processing by Admin::InstructorsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["type", "Instructor"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 54.5ms | Allocations: 48042)
+Completed 200 OK in 62ms (Views: 54.9ms | ActiveRecord: 0.7ms | Allocations: 49865)
+
+
+Started GET "/admin/students" for ::1 at 2023-07-14 14:52:28 +0530
+Processing by Admin::StudentsController#index as HTML
+  [1m[36mAdminUser Load (0.1ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["type", "Student"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mEnrollment Load (0.2ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments"[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 51.0ms | Allocations: 55413)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.7ms | Allocations: 57814)
+
+
+Started GET "/admin/users" for ::1 at 2023-07-14 14:52:29 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.1ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered /home/rails/.rvm/gems/ruby-3.2.1/gems/activeadmin-2.14.0/app/views/active_admin/resource/index.html.arb (Duration: 53.6ms | Allocations: 55659)
+Completed 200 OK in 61ms (Views: 54.9ms | ActiveRecord: 0.4ms | Allocations: 57993)
+
+
+Started POST "/students" for ::1 at 2023-07-14 14:52:50 +0530
+  
+NoMethodError (undefined method `protect_from_forgery' for ApiController:Class):
+  
+app/controllers/api_controller.rb:8:in `<class:ApiController>'
+app/controllers/api_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/students" for ::1 at 2023-07-14 15:10:41 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"c@gmail.com", "password"=>"[FILTERED]", "username"=>"c", "name"=>"c", "type"=>"Student"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "c"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 299ms (Views: 2.0ms | ActiveRecord: 0.9ms | Allocations: 16899)
+
+
+Started POST "/auth/login" for ::1 at 2023-07-14 15:10:46 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"d@gmail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 289ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 3390)
+
+
+Started POST "/instructors" for ::1 at 2023-07-14 15:11:00 +0530
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "type"=>"Instructor"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "d"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 284ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 4756)
+
+
+Started POST "/auth/login" for ::1 at 2023-07-14 15:11:03 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"c@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 280ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 809)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:11:06 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 2159)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000014870>):
+  
+app/controllers/courses_controller.rb:4:in `create'
+Started POST "/auth/login" for ::1 at 2023-07-14 15:11:13 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"c@gmail.com"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 283ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 783)
+
+
+Started GET "/courses" for ::1 at 2023-07-14 15:11:18 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1579)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:11:24 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:3:in `create'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 1423)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000014c80>):
+  
+app/controllers/courses_controller.rb:4:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:18:04 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 5901)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000001f3d8>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:19:16 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.1ms | Allocations: 6342)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000029b58>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:21:35 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms | Allocations: 6342)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000034300>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:24:11 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000003ead0>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:25:34 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.0ms | Allocations: 6344)
+
+
+  
+NameError (undefined local variable or method `authorize' for #<CoursesController:0x000000000492c8>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:25:53 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000053a98>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:26:32 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000005e2e0>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:26:50 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000068b00>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:27:06 +0530
+  
+NameError (undefined local variable or method `authorize' for CoursesController:Class):
+  
+app/controllers/courses_controller.rb:3:in `<class:CoursesController>'
+app/controllers/courses_controller.rb:1:in `<main>'
+Started POST "/courses" for ::1 at 2023-07-14 15:27:34 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.3ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000007db40>):
+  
+app/controllers/courses_controller.rb:5:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:29:37 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.9ms | Allocations: 5919)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000088428>):
+  
+app/controllers/courses_controller.rb:5:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:30:21 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 5907)
+
+
+  
+NameError (undefined local variable or method `user' for #<CoursesController:0x00000000092d38>):
+  
+app/controllers/courses_controller.rb:5:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:30:34 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.9ms | Allocations: 5919)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000009d620>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:31:18 +0530
+  
+TypeError (wrong argument type Class (expected Module)):
+  
+app/controllers/courses_controller.rb:2:in `extend'
+app/controllers/courses_controller.rb:2:in `<class:CoursesController>'
+app/controllers/courses_controller.rb:1:in `<main>'
+Started POST "/courses" for ::1 at 2023-07-14 15:31:39 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.9ms | Allocations: 5918)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/courses_controller.rb:3:in `authorize'
+app/controllers/courses_controller.rb:8:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:32:06 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+No template found for CoursesController#create, rendering head :no_content
+Completed 204 No Content in 14ms (ActiveRecord: 0.9ms | Allocations: 6078)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:32:34 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.0ms | Allocations: 6283)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x000000000c78a8>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started GET "/courses" for ::1 at 2023-07-14 15:32:36 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 3773)
+
+
+Started GET "/courses/23" for ::1 at 2023-07-14 15:32:41 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["instructor_id", 13], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:36:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 12ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 6161)
+
+
+Started GET "/courses/23" for ::1 at 2023-07-14 15:34:07 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 5911)
+
+
+  
+NoMethodError (undefined method `authenticate_request!' for #<CoursesController:0x000000000d2370>):
+  
+activesupport (7.0.6) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.6) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.6) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.6) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.6) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.6) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.6) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/courses" for ::1 at 2023-07-14 15:34:10 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 992)
+
+
+  
+NoMethodError (undefined method `authenticate_request!' for #<CoursesController:0x000000000d2690>):
+  
+activesupport (7.0.6) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.6) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.6) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.6) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.6) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.6) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.6) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/courses" for ::1 at 2023-07-14 15:34:13 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 992)
+
+
+  
+NoMethodError (undefined method `authenticate_request!' for #<CoursesController:0x000000000d29b0>):
+  
+activesupport (7.0.6) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.6) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.6) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.6) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.6) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.6) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.7) lib/rack/etag.rb:27:in `call'
+rack (2.2.7) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.7) lib/rack/head.rb:12:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.7) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.7) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.6) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/method_override.rb:24:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/courses" for ::1 at 2023-07-14 15:34:33 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.1ms | Allocations: 6341)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x000000000dd388>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started GET "/courses" for ::1 at 2023-07-14 15:34:36 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 3772)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:44:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.8ms | Allocations: 10876)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000014398>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 15:47:04 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 254637ms (Views: 1.7ms | ActiveRecord: 2.8ms | Allocations: 94990)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:54:16 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Entity in 79684ms (Views: 2.0ms | ActiveRecord: 3.6ms | Allocations: 99381)
+
+
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Desktop/udemy/app/controllers/application_controller.rb:2)
+Started POST "/courses" for ::1 at 2023-07-14 15:55:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 422 Unprocessable Entity in 5292ms (Views: 2.2ms | ActiveRecord: 3.0ms | Allocations: 93138)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:59:04 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mCourse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 422 Unprocessable Entity in 5266ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 8709)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 15:59:37 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 2182ms (ActiveRecord: 1.1ms | Allocations: 9484)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x0000000001ea50>):
+  
+app/controllers/courses_controller.rb:7:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 16:00:50 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 3193ms (ActiveRecord: 1.1ms | Allocations: 9421)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000029248>):
+  
+app/controllers/courses_controller.rb:7:in `create'
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Desktop/udemy/app/controllers/application_controller.rb:2)
+Started POST "/courses" for ::1 at 2023-07-14 16:05:13 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+Completed 500 Internal Server Error in 54036ms (ActiveRecord: 1.0ms | Allocations: 76072)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000014398>):
+  
+app/controllers/courses_controller.rb:7:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Started POST "/courses" for ::1 at 2023-07-14 16:52:26 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"t1 course", "about"=>"my first course", "status"=>"inactive", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:23:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.5ms | Allocations: 10877)
+
+
+  
+NoMethodError (undefined method `authorize' for #<CoursesController:0x00000000014398>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 16:55:20 +0530
+  
+NameError (uninitialized constant Pundit::Authorize):
+  
+app/controllers/api_controller.rb:3:in `<class:ApiController>'
+app/controllers/api_controller.rb:1:in `<main>'
+app/controllers/courses_controller.rb:1:in `<main>'
+Started POST "/courses" for ::1 at 2023-07-14 16:55:30 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Desktop/udemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"t1 course", "about"=>"my first course", "status"=>"inactive", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:24:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms | Allocations: 6393)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<CoursesController:0x000000000291f8>):
+  
+app/controllers/courses_controller.rb:6:in `create'
+Started POST "/courses" for ::1 at 2023-07-14 16:56:18 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Desktop/udemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"t1 course", "about"=>"my first course", "status"=>"inactive", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:24:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "t1 course"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 43ms (Views: 1.8ms | ActiveRecord: 2.7ms | Allocations: 27312)
+
+
+Started POST "/courses" for ::1 at 2023-07-14 16:56:44 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Desktop/udemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"t1 course", "about"=>"my first course", "status"=>"inactive", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:24:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.9ms | Allocations: 6613)
+
+
+  
+Pundit::NotAuthorizedError (not allowed to create? this Class):
+  
+app/controllers/courses_controller.rb:6:in `create'

@@ -1,21 +1,19 @@
 class EnrollmentsController < ApiController
   def create
+    byebug
     user = User.find(@current_user.id)
-    if user.type == "Student"
-      @enroll = @current_user.enrollments.new(enroll_params)
-      if @enroll.save
-        render json: @enroll, status: :ok
-      else
-        render json: { error: "Course not avilable or you already have it" }
-      end
+    authorize user
+    @enroll = @current_user.enrollments.new(enroll_params)
+    if @enroll.save
+      render json: @enroll, status: :ok
     else
-      render json: { errors: "Only Student Can Enroll For Courses" }, status: :unprocessable_entity
+      render json: { error: "Course not avilable or you already have it" }
     end
   end
 
   def index
     all_courses = Enrollment.where(student_id: @current_user.id)
-
+    authorize all_courses
     if all_courses.empty?
       render json: { message: "At this moment, no course is enrolled by you" }, status: :ok
     else
@@ -28,6 +26,7 @@ class EnrollmentsController < ApiController
   def update
     begin
       enrollment = Enrollment.find(params[:id])
+      authorize enrollment
       new_status = params[:cou_status]
 
       if enrollment.update(cou_status: new_status)
@@ -43,6 +42,7 @@ class EnrollmentsController < ApiController
   def search_in_my_course
     # byebug
     course = Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
+    authorize course
 
     all_courses = Enrollment.where(course_id: course, student_id: @current_user.id)
 
