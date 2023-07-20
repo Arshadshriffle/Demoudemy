@@ -13,7 +13,7 @@ class UsersController < ApiController
 
   def update
     @user = User.where(id: @current_user.id).find_by(id: params[:id])
-    if !@user.blank
+    if @user.present?
       if @user.update(user_params { password })
         render json: { message: "Password updated successfully" }, status: :ok
       else
@@ -26,7 +26,7 @@ class UsersController < ApiController
 
   def destroy
     @user = User.where(id: @current_user.id).find_by(id: params[:id])
-    if !@user.blank?
+    unless @user.blank?
       if @user.destroy
         render json: { message: "Instructor Deleted" }, status: :ok
       else

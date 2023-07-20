@@ -11,12 +11,12 @@ class EnrollmentsController < ApiController
   end
 
   def index
-    all_courses = Enrollment.where(student_id: @current_user.id)
+    all_courses = @current_user.enrollments
     authorize Enrollment
-    if all_courses.empty?
-      render json: { message: "At this moment, no course is enrolled by you" }, status: :ok
+    if all_courses.present?
+      render json: all_courses, c_user: @current_user, status: :ok
     else
-      render json: all_courses, status: :ok
+      render json: { message: "At this moment, no course is enrolled by you" }, status: :ok
     end
   rescue => e
     render json: { error: e.message }, status: :unprocessable_entity
@@ -29,7 +29,7 @@ class EnrollmentsController < ApiController
       new_status = params[:cou_status]
 
       if enrollment.update(cou_status: new_status)
-        render json: enrollment, status: :ok
+        render json: { message: "sucessfully updated", cour_de: enrollment }, status: :ok
       else
         render json: enrollment.errors, status: :unprocessable_entity
       end

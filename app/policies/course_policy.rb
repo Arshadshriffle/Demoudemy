@@ -18,38 +18,14 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def index?
-    user.Instructor?
+    # user.Instructor?
   end
 
   def show?
     user.Instructor?
   end
 
-  def single_course_with_name?
-    user.Instructor?
-  end
-
-  def course_status?
-    user.Instructor?
-  end
-
   # All the Students Works
-
-  def allcourses?
-    user.Student?
-  end
-
-  def course_category?
-    user.Student?
-  end
-
-  def name_and_category?
-    user.Student?
-  end
-
-  def course_with_name?
-    user.Student?
-  end
 
 
 end
