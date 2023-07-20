@@ -25232,3 +25232,921 @@ Processing by Admin::EnrollmentsController#index as HTML
 Completed 200 OK in 92ms (Views: 84.0ms | ActiveRecord: 1.8ms | Allocations: 71798)
 
 
+Started GET "/mycourse" for ::1 at 2023-07-20 10:34:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by EnrollmentsController#search_in_my_course as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Pluck (0.3ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/enrollments_controller.rb:42:in `search_in_my_course'
+  [1m[36mEnrollment Load (0.5ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."course_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND "enrollments"."student_id" = ?[0m  [["course_id", 1], ["course_id", 2], ["course_id", 3], ["course_id", 4], ["course_id", 5], ["course_id", 6], ["course_id", 7], ["course_id", 8], ["course_id", 9], ["course_id", 10], ["course_id", 11], ["course_id", 12], ["course_id", 13], ["course_id", 14], ["course_id", 15], ["course_id", 16], ["course_id", 17], ["course_id", 18], ["course_id", 19], ["course_id", 20], ["course_id", 21], ["course_id", 22], ["course_id", 23], ["student_id", 12]]
+  ↳ app/controllers/enrollments_controller.rb:47:in `search_in_my_course'
+[active_model_serializers]   [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/enrollments_controller.rb:47:in `search_in_my_course'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: c6ugl2w3nc46in9yqtlvdu9h3uu7 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZeloxWjJ3eWR6TnVZelEyYVc0NWVYRjBiSFprZFRsb00zVjFOd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSlFjbTluY21GdGJXVnlMVmRvWVhSellYQndMVk4wWVhSMWN5MVdhV1JsYjNNdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTXViWEEwQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJT2RtbGtaVzh2YlhBMEJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDctMjBUMDU6MDk6MjIuNTIwWiIsInB1ciI6ImJsb2Jfa2V5In19--544f711636e1a71c5a332b7e7d2e6e86e28a7541/Programmer-Whatsapp-Status-Videos.mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (116.65ms)
+Completed 200 OK in 154ms (Views: 128.9ms | ActiveRecord: 5.0ms | Allocations: 46147)
+
+
+Started GET "/courses" for ::1 at 2023-07-20 10:34:34 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses if @all_courses...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @single_course if @single_co...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:54: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if all_courses.e...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:68: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if @all_courses....
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:87: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:54: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:68: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:87: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:54: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:68: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:87: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:40: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:54: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:68: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:87: syntax error, unexpected ':', expecting =>
+Started GET "/courses" for ::1 at 2023-07-20 10:35:55 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses if @all_courses...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @single_course if @single_co...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if all_courses.e...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if @all_courses....
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:137: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+Started GET "/courses" for ::1 at 2023-07-20 10:53:41 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses if @all_courses...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @single_course if @single_co...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if all_courses.e...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if @all_courses....
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:137: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:55: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:69: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:88: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:137: syntax error, unexpected `end'
+Started GET "/courses" for ::1 at 2023-07-20 10:54:33 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses if @all_courses...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:42: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @single_course if @single_co...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:56: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if all_courses.e...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:70: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses if @all_courses....
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:89: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:138: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:42: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:56: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:70: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:89: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:138: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:42: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:56: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:70: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:89: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:138: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:42: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:56: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:70: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:89: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:138: syntax error, unexpected `end'
+Started GET "/courses" for ::1 at 2023-07-20 10:54:47 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses if @all_courses...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:38: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:38: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:38: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:27: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:38: syntax error, unexpected `end'
+Started GET "/courses" for ::1 at 2023-07-20 10:59:15 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @all_courses unless @all_cou...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: @single_course unless @singl...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:53: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses unless all_cours...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:65: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: all_courses unless @all_cour...
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:85: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:53: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:65: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:85: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:53: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:65: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:85: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:26: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:41: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:53: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:65: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:85: syntax error, unexpected ':', expecting =>
+Started POST "/users" for ::1 at 2023-07-20 11:09:11 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "Type"=>"Instructor"}
+[31mUnpermitted parameter: :Type. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f5374699e38>, params: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "Type"=>"Instructor", "controller"=>"users", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "d"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 300ms (Views: 2.7ms | ActiveRecord: 0.9ms | Allocations: 15246)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:09:22 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+Started POST "/courses" for ::1 at 2023-07-20 11:10:05 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+Started POST "/courses" for ::1 at 2023-07-20 11:10:32 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+Started GET "/courses" for ::1 at 2023-07-20 11:10:36 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+Started GET "/courses" for ::1 at 2023-07-20 11:12:49 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:19: else without rescue is useless
+    else
+    ^~~~
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:129: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+Started POST "/users" for ::1 at 2023-07-20 11:13:32 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "Type"=>"Instructor"}
+[31mUnpermitted parameter: :Type. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f537449a0b0>, params: {"name"=>"d", "username"=>"d", "email"=>"d@gmail.com", "password"=>"[FILTERED]", "Type"=>"Instructor", "controller"=>"users", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "d"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "d@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 294ms (Views: 1.0ms | ActiveRecord: 1.2ms | Allocations: 9670)
+
+
+Started POST "/auth/login" for ::1 at 2023-07-20 11:13:37 +0530
+Processing by AuthenticationController#login as */*
+  Parameters: {"password"=>"[FILTERED]", "email"=>"c@gmail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "c@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:5:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 286ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 3390)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:13:41 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:19: else without rescue is useless
+    else
+    ^~~~
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:129: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+Started POST "/courses" for ::1 at 2023-07-20 11:14:04 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:19: else without rescue is useless
+    else
+    ^~~~
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:129: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:19: else without rescue is useless
+app/controllers/courses_controller.rb:80: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:129: syntax error, unexpected `end'
+Started POST "/courses" for ::1 at 2023-07-20 11:15:51 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:78: syntax error, unexpected ':', expecting =>
+...json: { messal_courses.emptyge: "No courses available yet fo...
+...                              ^
+):
+  
+app/controllers/courses_controller.rb:78: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:78: syntax error, unexpected ':', expecting =>
+app/controllers/courses_controller.rb:78: syntax error, unexpected ':', expecting =>
+Started POST "/courses" for ::1 at 2023-07-20 11:17:37 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:13:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:13:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 53ms (Views: 1.5ms | ActiveRecord: 2.5ms | Allocations: 26341)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:42:43 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+Started POST "/courses" for ::1 at 2023-07-20 11:43:18 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:127: syntax error, unexpected `end'):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:127: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:127: syntax error, unexpected `end'
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:127: syntax error, unexpected `end'
+Started POST "/courses" for ::1 at 2023-07-20 11:43:56 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: { errors: course.errors.full...
+               ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+Started POST "/courses" for ::1 at 2023-07-20 11:44:33 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course hai", "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 29ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 20070)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:45:42 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ji", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f5374366ea0 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-11043-zsiw00.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ji"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 58ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 26007)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:45:50 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello j", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f53740c3d60 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-11043-c14dxq.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello j"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Create (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("title", "about", "status", "instructor_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "hello j"], ["about", "ji yai course "], ["status", "active"], ["instructor_id", 13], ["category_id", 3], ["created_at", "2023-07-20 06:15:50.719276"], ["updated_at", "2023-07-20 06:15:50.719276"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "b1zwemyil9y0z9zxvoxk95ehp41q"], ["filename", "Programmer-Whatsapp-Status-Videos (3).mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1789022], ["checksum", "Zin44BD34ycAN+KZGcq0XA=="], ["created_at", "2023-07-20 06:15:50.724342"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Course"], ["record_id", 24], ["blob_id", 24], ["created_at", "2023-07-20 06:15:50.726486"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Update (0.1ms)[0m  [1m[33mUPDATE "courses" SET "updated_at" = ? WHERE "courses"."id" = ?[0m  [["updated_at", "2023-07-20 06:15:50.727927"], ["id", 24]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+[36m  Disk Storage (5.9ms) [0m[32mUploaded file to key: b1zwemyil9y0z9zxvoxk95ehp41q (checksum: Zin44BD34ycAN+KZGcq0XA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 633b24ba-2e8d-4fad-a6e4-8e93b67dad2a) to Async(default) with arguments: #<GlobalID:0x00007f5375de6ca8 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/24>>
+[active_model_serializers] [36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: b1zwemyil9y0z9zxvoxk95ehp41q (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakY2ZDJWdGVXbHNPWGt3ZWpsNmVIWnZlR3M1TldWb2NEUXhjUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlNJT2RtbGtaVzh2YlhBME9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIzLTA3LTIwVDA2OjIwOjUwLjc1M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--ea19afccff6fc469a2bf5f827f9ecbcb13deb816/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 500 Internal Server Error in 48ms (Views: 11.8ms | ActiveRecord: 5.3ms | Allocations: 15823)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/courses_controller.rb:10:in `create'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a] Performing ActiveStorage::AnalyzeJob (Job ID: 633b24ba-2e8d-4fad-a6e4-8e93b67dad2a) from Async(default) enqueued at 2023-07-20T06:15:50Z with arguments: #<GlobalID:0x00007f5374037e00 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/24>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a] [36m  Disk Storage (2.8ms) [0m[34mDownloaded file from key: b1zwemyil9y0z9zxvoxk95ehp41q[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a] Skipping video analysis because ffprobe isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"audio\":false,\"video\":false,\"analyzed\":true}"], ["id", 24]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a]   [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [633b24ba-2e8d-4fad-a6e4-8e93b67dad2a] Performed ActiveStorage::AnalyzeJob (Job ID: 633b24ba-2e8d-4fad-a6e4-8e93b67dad2a) from Async(default) in 28.43ms
+Started POST "/courses" for ::1 at 2023-07-20 11:51:31 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello j", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f5347fd9b60 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-11043-urwoom.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello j"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello j"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+No template found for CoursesController#create, rendering head :no_content
+Completed 204 No Content in 49ms (ActiveRecord: 1.0ms | Allocations: 26184)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 11:51:40 +0530
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ko", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f53740c9120 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-11043-8egrpf.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ko"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("title", "about", "status", "instructor_id", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "hello ko"], ["about", "ji yai course "], ["status", "active"], ["instructor_id", 13], ["category_id", 3], ["created_at", "2023-07-20 06:21:40.981673"], ["updated_at", "2023-07-20 06:21:40.981673"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 25], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "2zmercmsqvkwuryornpa2mg638gd"], ["filename", "Programmer-Whatsapp-Status-Videos (3).mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1789022], ["checksum", "Zin44BD34ycAN+KZGcq0XA=="], ["created_at", "2023-07-20 06:21:40.986007"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Course"], ["record_id", 25], ["blob_id", 25], ["created_at", "2023-07-20 06:21:40.987914"]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mCourse Update (0.1ms)[0m  [1m[33mUPDATE "courses" SET "updated_at" = ? WHERE "courses"."id" = ?[0m  [["updated_at", "2023-07-20 06:21:40.989668"], ["id", 25]]
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:9:in `create'
+[36m  Disk Storage (5.9ms) [0m[32mUploaded file to key: 2zmercmsqvkwuryornpa2mg638gd (checksum: Zin44BD34ycAN+KZGcq0XA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a) to Async(default) with arguments: #<GlobalID:0x00007f5375f5a0a8 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/25>>
+[active_model_serializers] [36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: 2zmercmsqvkwuryornpa2mg638gd (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNbnB0WlhKamJYTnhkbXQzZFhKNWIzSnVjR0V5YldjMk16aG5aQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlNJT2RtbGtaVzh2YlhBME9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIzLTA3LTIwVDA2OjI2OjQxLjAwNFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--71da1129f93ec6efec2bc04ecb41b0ef8b6bfa44/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (1.31ms)
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? AND "courses"."id" != ? LIMIT ?[0m  [["title", "hello ko"], ["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 39ms (Views: 2.5ms | ActiveRecord: 4.0ms | Allocations: 12800)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/courses_controller.rb:10:in `create'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a] Performing ActiveStorage::AnalyzeJob (Job ID: 8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a) from Async(default) enqueued at 2023-07-20T06:21:41Z with arguments: #<GlobalID:0x00007f5375ce6fb0 @uri=#<URI::GID gid://udemy/ActiveStorage::Blob/25>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a] [36m  Disk Storage (3.4ms) [0m[34mDownloaded file from key: 2zmercmsqvkwuryornpa2mg638gd[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a] Skipping video analysis because ffprobe isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"audio\":false,\"video\":false,\"analyzed\":true}"], ["id", 25]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a]   [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a] Performed ActiveStorage::AnalyzeJob (Job ID: 8f8f5d2b-472e-49bb-8b7b-93d9ac311c6a) from Async(default) in 18.95ms
+Started POST "/courses" for ::1 at 2023-07-20 11:53:13 +0530
+  
+SyntaxError (/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+    return json: course if course.save
+               ^
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:10: else without rescue is useless
+  else return json: { errors: cours...
+  ^~~~
+/home/rails/Downloads/final/udemy/Demoudemy/app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+  else return json: { errors: course.errors.full...
+                  ^
+):
+  
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: else without rescue is useless
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: else without rescue is useless
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:9: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/courses_controller.rb:10: else without rescue is useless
+app/controllers/courses_controller.rb:10: syntax error, unexpected ':', expecting `end' or dummy end
+Started POST "/courses" for ::1 at 2023-07-20 11:54:16 +0530
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ko", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f5374392780 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-11043-yajggn.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ko"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 55ms (Views: 1.3ms | ActiveRecord: 3.1ms | Allocations: 29606)
+
+
+Started POST "/courses" for ::1 at 2023-07-20 12:24:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: 'include Pundit' is deprecated. Please use 'include Pundit::Authorization' instead.
+ (called from include at /home/rails/Downloads/final/udemy/Demoudemy/app/controllers/api_controller.rb:3)
+Processing by CoursesController#create as */*
+  Parameters: {"title"=>"hello ko", "about"=>"ji yai course ", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007f83b43f40c8 @tempfile=#<Tempfile:/tmp/RackMultipart20230720-17203-7egn9s.mp4>, @content_type="video/mp4", @original_filename="Programmer-Whatsapp-Status-Videos (3).mp4", @headers="Content-Disposition: form-data; name=\"video\"; filename=\"Programmer-Whatsapp-Status-Videos (3).mp4\"\r\nContent-Type: video/mp4\r\n">, "status"=>"active", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."title" = ? LIMIT ?[0m  [["title", "hello ko"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/courses_controller.rb:12:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 136ms (Views: 2.0ms | ActiveRecord: 3.0ms | Allocations: 45888)
+
+
+Started GET "/courses" for ::1 at 2023-07-20 12:24:42 +0530
+Processing by CoursesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."instructor_id" = ? LIMIT ?[0m  [["instructor_id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:25:in `index'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ?[0m  [["instructor_id", 13]]
+  ↳ app/controllers/courses_controller.rb:28:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NDIuODM4WiIsInB1ciI6ImJsb2Jfa2V5In19--31b62bd667f1c68709dd1752a2bdce5780c61a36/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: b1zwemyil9y0z9zxvoxk95ehp41q (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakY2ZDJWdGVXbHNPWGt3ZWpsNmVIWnZlR3M1TldWb2NEUXhjUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NDIuODQyWiIsInB1ciI6ImJsb2Jfa2V5In19--2c77fa2b460634e9cf7347a2bdec11fa8c0ec591/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 25], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: 2zmercmsqvkwuryornpa2mg638gd (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNbnB0WlhKamJYTnhkbXQzZFhKNWIzSnVjR0V5YldjMk16aG5aQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NDIuODQ3WiIsInB1ciI6ImJsb2Jfa2V5In19--947921bb6c4797da3d04cdb03ef793fe797d283b/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.64ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 1.3ms | Allocations: 11524)
+
+
+Started GET "/courses/23" for ::1 at 2023-07-20 12:24:45 +0530
+Processing by CoursesController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["instructor_id", 13], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:35:in `show'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NDUuMjU2WiIsInB1ciI6ImJsb2Jfa2V5In19--7a9d04588e5f8ad104af28cc75044ff3e6e23fe1/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered CourseSerializer with ActiveModelSerializers::Adapter::Attributes (4.79ms)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 4220)
+
+
+Started GET "/instructor?title=a" for ::1 at 2023-07-20 12:24:48 +0530
+Processing by CoursesController#single_course_with_name as */*
+  Parameters: {"title"=>"a"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."instructor_id" = ? AND (title LIKE '%a%') LIMIT ?[0m  [["instructor_id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:49:in `single_course_with_name'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1368)
+
+
+Started GET "/instructor/status?status=active" for ::1 at 2023-07-20 12:24:54 +0530
+Processing by CoursesController#course_status as */*
+  Parameters: {"status"=>"active"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."status" = ? LIMIT ?[0m  [["instructor_id", 13], ["status", "active"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:61:in `course_status'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."instructor_id" = ? AND "courses"."status" = ?[0m  [["instructor_id", 13], ["status", "active"]]
+  ↳ app/controllers/courses_controller.rb:64:in `course_status'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: u6dph9j4tskmhc1r9ugfafzpy6ng (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkVFprY0dnNWFqUjBjMnR0YUdNeGNqbDFaMlpoWm5wd2VUWnVad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NTQuMDY2WiIsInB1ciI6ImJsb2Jfa2V5In19--c262ab447198c7c3c7d08ba47f9c9b3dea914509/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: b1zwemyil9y0z9zxvoxk95ehp41q (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakY2ZDJWdGVXbHNPWGt3ZWpsNmVIWnZlR3M1TldWb2NEUXhjUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NTQuMDcwWiIsInB1ciI6ImJsb2Jfa2V5In19--4b084216cffdc6f63e0ef7cae767bbfc125d2ed7/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 25], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: 2zmercmsqvkwuryornpa2mg638gd (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNbnB0WlhKamJYTnhkbXQzZFhKNWIzSnVjR0V5YldjMk16aG5aQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlaaGRIUmhZMmh0Wlc1ME95Qm1hV3hsYm1GdFpUMGlVSEp2WjNKaGJXMWxjaTFYYUdGMGMyRndjQzFUZEdGMGRYTXRWbWxrWlc5eklDVXlPRE1sTWprdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTWxNakFsTWpnekpUSTVMbTF3TkFZN0JsUTZFV052Ym5SbGJuUmZkSGx3WlVraURuWnBaR1Z2TDIxd05BWTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDctMjBUMDY6NTk6NTQuMDczWiIsInB1ciI6ImJsb2Jfa2V5In19--f22f79b117f965355e068864137772c49d758493/Programmer-Whatsapp-Status-Videos%20(3).mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.5ms)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 1.1ms | Allocations: 8198)
+
+
+Started POST "/enrollments" for ::1 at 2023-07-20 12:25:03 +0530
+Processing by EnrollmentsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/enrollments_controller.rb:6:in `create'
+  [1m[36mEnrollment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."course_id" IS NULL AND "enrollments"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/enrollments_controller.rb:6:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 10529)
+
+
+Started GET "/enrollments" for ::1 at 2023-07-20 12:25:07 +0530
+Processing by EnrollmentsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mEnrollment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."student_id" = ? LIMIT ?[0m  [["student_id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:16:in `index'
+  [1m[36mEnrollment Load (0.1ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."student_id" = ?[0m  [["student_id", 12]]
+  ↳ app/controllers/enrollments_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/enrollments_controller.rb:19:in `index'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: c6ugl2w3nc46in9yqtlvdu9h3uu7 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZeloxWjJ3eWR6TnVZelEyYVc0NWVYRjBiSFprZFRsb00zVjFOd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSlFjbTluY21GdGJXVnlMVmRvWVhSellYQndMVk4wWVhSMWN5MVdhV1JsYjNNdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTXViWEEwQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJT2RtbGtaVzh2YlhBMEJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDctMjBUMDc6MDA6MDcuMjE1WiIsInB1ciI6ImJsb2Jfa2V5In19--aa1c0e6335844ebc61c081d802e55b4da37f876d/Programmer-Whatsapp-Status-Videos.mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.28ms)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.8ms | Allocations: 7690)
+
+
+Started PATCH "/enrollments/13?cou_status=completed" for ::1 at 2023-07-20 12:25:12 +0530
+Processing by EnrollmentsController#update as */*
+  Parameters: {"cou_status"=>"completed", "id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mEnrollment Load (0.1ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/enrollments_controller.rb:31:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:31:in `update'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."type" = ? AND "users"."id" = ? LIMIT ?[0m  [["type", "Student"], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:31:in `update'
+  [1m[36mEnrollment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "enrollments" WHERE "enrollments"."course_id" = ? AND "enrollments"."id" != ? AND "enrollments"."student_id" = ? LIMIT ?[0m  [["course_id", 3], ["id", 13], ["student_id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/enrollments_controller.rb:31:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/enrollments_controller.rb:31:in `update'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: c6ugl2w3nc46in9yqtlvdu9h3uu7 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZeloxWjJ3eWR6TnVZelEyYVc0NWVYRjBiSFprZFRsb00zVjFOd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSlFjbTluY21GdGJXVnlMVmRvWVhSellYQndMVk4wWVhSMWN5MVdhV1JsYjNNdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTXViWEEwQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJT2RtbGtaVzh2YlhBMEJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDctMjBUMDc6MDA6MTIuNTI5WiIsInB1ciI6ImJsb2Jfa2V5In19--e7ee4d6ff315639b798718e34dfd6fc8f170fc44/Programmer-Whatsapp-Status-Videos.mp4)[0m
+[active_model_serializers] Rendered EnrollmentSerializer with ActiveModelSerializers::Adapter::Attributes (4.45ms)
+Completed 200 OK in 14ms (Views: 4.6ms | ActiveRecord: 0.9ms | Allocations: 9088)
+
+
+Started GET "/student/allcourses" for ::1 at 2023-07-20 12:25:19 +0530
+Processing by CoursesController#allcourses as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."status" = ? LIMIT ?[0m  [["status", "active"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:75:in `allcourses'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."status" = ?[0m  [["status", "active"]]
+  ↳ app/controllers/courses_controller.rb:78:in `allcourses'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.24ms)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 5221)
+
+
+Started GET "/student/category?category_id=1" for ::1 at 2023-07-20 12:25:23 +0530
+Processing by CoursesController#course_category as */*
+  Parameters: {"category_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE "courses"."category_id" = ? AND "courses"."status" = ? LIMIT ?[0m  [["category_id", 1], ["status", "active"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `course_category'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."category_id" = ? AND "courses"."status" = ?[0m  [["category_id", 1], ["status", "active"]]
+  ↳ app/controllers/courses_controller.rb:90:in `course_category'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 2289)
+
+
+Started GET "/student/name?title=h" for ::1 at 2023-07-20 12:25:27 +0530
+Processing by CoursesController#course_with_name as */*
+  Parameters: {"title"=>"h"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE (title LIKE '%h%') AND "courses"."status" = ? LIMIT ?[0m  [["status", "active"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:111:in `course_with_name'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE (title LIKE '%h%') AND "courses"."status" = ?[0m  [["status", "active"]]
+  ↳ app/controllers/courses_controller.rb:114:in `course_with_name'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2920)
+
+
+Started GET "/student/tac?title=h&category_id=3" for ::1 at 2023-07-20 12:25:31 +0530
+Processing by CoursesController#name_and_category as */*
+  Parameters: {"title"=>"h", "category_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" WHERE (title LIKE '%h%') AND "courses"."category_id" = ? AND "courses"."status" = ? LIMIT ?[0m  [["category_id", 3], ["status", "active"], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:99:in `name_and_category'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE (title LIKE '%h%') AND "courses"."category_id" = ? AND "courses"."status" = ?[0m  [["category_id", 3], ["status", "active"]]
+  ↳ app/controllers/courses_controller.rb:102:in `name_and_category'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.91ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 2947)
+
+
+Started GET "/mycourse" for ::1 at 2023-07-20 12:25:34 +0530
+Processing by EnrollmentsController#search_in_my_course as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api_controller.rb:19:in `authenticate_request'
+  [1m[36mCourse Pluck (0.3ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" WHERE (title LIKE '%%')[0m
+  ↳ app/controllers/enrollments_controller.rb:42:in `search_in_my_course'
+  [1m[36mEnrollment Load (0.3ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments" WHERE "enrollments"."course_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND "enrollments"."student_id" = ?[0m  [["course_id", 1], ["course_id", 2], ["course_id", 3], ["course_id", 4], ["course_id", 5], ["course_id", 6], ["course_id", 7], ["course_id", 8], ["course_id", 9], ["course_id", 10], ["course_id", 11], ["course_id", 12], ["course_id", 13], ["course_id", 14], ["course_id", 15], ["course_id", 16], ["course_id", 17], ["course_id", 18], ["course_id", 19], ["course_id", 20], ["course_id", 21], ["course_id", 22], ["course_id", 23], ["course_id", 24], ["course_id", 25], ["student_id", 12]]
+  ↳ app/controllers/enrollments_controller.rb:47:in `search_in_my_course'
+[active_model_serializers]   [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/enrollments_controller.rb:47:in `search_in_my_course'
+[active_model_serializers]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Course"], ["name", "video"], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/course_serializer.rb:6:in `video'
+[active_model_serializers] [36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: c6ugl2w3nc46in9yqtlvdu9h3uu7 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZeloxWjJ3eWR6TnVZelEyYVc0NWVYRjBiSFprZFRsb00zVjFOd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZVdGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSlFjbTluY21GdGJXVnlMVmRvWVhSellYQndMVk4wWVhSMWN5MVdhV1JsYjNNdWJYQTBJanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bmNtRnRiV1Z5TFZkb1lYUnpZWEJ3TFZOMFlYUjFjeTFXYVdSbGIzTXViWEEwQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJT2RtbGtaVzh2YlhBMEJqc0dWRG9SYzJWeWRtbGpaVjl1WVcxbE9ncHNiMk5oYkE9PSIsImV4cCI6IjIwMjMtMDctMjBUMDc6MDA6MzQuMjIwWiIsInB1ciI6ImJsb2Jfa2V5In19--e13572c146831bd3aa9854094986e43c22f7c541/Programmer-Whatsapp-Status-Videos.mp4)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.02ms)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 1.0ms | Allocations: 5432)
+
+

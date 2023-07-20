@@ -1,6 +1,5 @@
 class EnrollmentsController < ApiController
   def create
-  # byebug
     user = User.find(@current_user.id)
     authorize Enrollment
     @enroll = @current_user.enrollments.new(enroll_params)
@@ -40,7 +39,6 @@ class EnrollmentsController < ApiController
   end
 
   def search_in_my_course
-    # byebug
     course = Course.where("title LIKE ?", "%#{params[:title]}%").pluck(:id)
     authorize Enrollment
 

@@ -6,9 +6,8 @@ class CoursesController < ApiController
     authorize Course
     # if user.type == "Instructor"
     course = @current_user.courses.new(course_params)
-    return json: course if course.save
-    render json: { errors: course.errors.full_messages }, status: :unprocessable_entity
-    
+    # return json: course if course.save
+    # render json: { errors: course.errors.full_messages }, status: :unprocessable_entity
 
     if course.save
       # render json: {content:@course , video_url:@course.video.url}, status: 200
@@ -16,9 +15,6 @@ class CoursesController < ApiController
     else
       render json: { errors: course.errors.full_messages }, status: :unprocessable_entity
     end
-    # else
-    #   render json: { errors: "Only Teacher Can Create Courses" }, status: :unprocessable_entity
-    # end
   end
 
   # All the Instructor works
@@ -76,8 +72,8 @@ class CoursesController < ApiController
   def allcourses
     all_courses = Course.where(status: "active")
     authorize Course
-    if al?
-      render json: { messal_courses.emptyge: "No courses available yet for you" }, status: :ok
+    if all_courses.empty?
+      render json: { messags: "No courses available yet for you" }, status: :ok
     else
       render json: all_courses, each_serializer: FstudSerializer, status: :ok
     end
@@ -127,3 +123,14 @@ class CoursesController < ApiController
     params.permit(:title, :about, :video, :category_id, :status)
   end
 end
+
+# def index
+#   if current_user=="Instructor"
+#   courses = current_user.courses
+#   courses = courses.where(status: params[:status]) if params[:status].present?
+#   courses = courses.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+#   else
+#     courses = Course.where(status: "active")
+#     courses = courses.where(category_id: params[:category_id]) if params[:category_id].present?
+#     courses = courses.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+#   end

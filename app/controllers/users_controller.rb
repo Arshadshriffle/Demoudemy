@@ -13,8 +13,7 @@ class UsersController < ApiController
 
   def update
     @user = User.where(id: @current_user.id).find_by(id: params[:id])
-    if !@user.blank?
-      # if @user.update(password_update)
+    if !@user.blank
       if @user.update(user_params { password })
         render json: { message: "Password updated successfully" }, status: :ok
       else

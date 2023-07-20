@@ -7,11 +7,8 @@ class ApiController < ActionController::API
   end
 
   before_action :authenticate_request
-  # before_action :student_authenticate_request
 
   private
-
-  # protected
 
   def authenticate_request
     begin
